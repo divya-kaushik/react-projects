@@ -1,36 +1,30 @@
-const parent = React.createElement(
-    'div', 
-    {id : 'parent'} , 
-    [
-        React.createElement(
-            'div', 
-            {id : 'child1'} , 
-            React.createElement(
-                'h1', 
-                {id : 'heading11'} , 
-                'I am heading 1 of first child'
-            ),
-            React.createElement(
-                'h2', 
-                {id : 'heading12'} , 
-                'I am heading 2 of first child'
-            ),
-        ),
-        React.createElement(
-            'div', 
-            {id : 'child2'} , 
-            React.createElement(
-                'h1', 
-                {id : 'heading21'} , 
-                'I am heading 1 of second child'
-            ),
-            React.createElement(
-                'h2', 
-                {id : 'heading22'} , 
-                'I am heading 2 of second child'
-            ),
-        ),
-    ]
-);
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(parent);
+import React from 'react';
+import ReactDOM  from 'react-dom/client';
+
+// React.craeteElement ==> ReactElement - Js Object ==> HTMLElement(render)
+
+// JSX ==> Babel transpiles it to React.craeteElement ==> ReactElement - Js Object ==> HTMLElement(render)
+
+// JSX is not HTML in js , its HTML/XML like syntax , jsx transpiled - Parcel - babel
+
+
+// React Functional Component
+const elem = <span>React Element </span>
+const Title = () => (
+<h1>
+    {elem}
+    React Title
+</h1>
+)
+
+const HeadingComponent = () =>  (
+    <>
+        {/* <TitleComponent /> */}
+        {Title()}
+        <Title />
+        <h1>Functional Component</h1>
+    </>
+    )
+
+const root =  ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HeadingComponent />);
